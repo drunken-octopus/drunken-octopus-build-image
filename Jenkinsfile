@@ -45,7 +45,9 @@ node() {
             withDockerRegistry(url: "", credentialsId: repository['credential']) {
                 versions.each { version ->
                     def image = docker.build("${repository['repository']}/${imageName}:${version}")
-                    image.push()
+                    if(env.CHANGE_ID == null) {
+                        image.push()
+                    }
                 }
             }
         }
