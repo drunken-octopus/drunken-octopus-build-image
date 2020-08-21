@@ -42,9 +42,9 @@ node() {
             def repositoryUrl = repository['registry']
             def uri = new java.net.URI(repositoryUrl);
             //['credential': 'custenborder_docker', 'registry': 'https://docker.custenborder.com', 'repository': 'jcustenborder']
-            withDockerRegistry(url: repositoryUrl, credentialsId: repository['credential']) {
+            withDockerRegistry(url: "", credentialsId: repository['credential']) {
                 versions.each { version ->
-                    def image = docker.build("${uri.getHost()}/${repository['repository']}/${imageName}:${version}")
+                    def image = docker.build("${repository['repository']}/${imageName}:${version}")
                     image.push()
                 }
             }
