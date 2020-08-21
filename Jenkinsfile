@@ -3,7 +3,7 @@ def imageName = 'drunken-octopus-build-image';
 def majorVersion = 0;
 def minorVersion = 0;
 def repositories = [
-        ['credential': 'docker_hub', 'registry': 'https://docker.custenborder.com', 'repository': 'drunkenoctopus']
+        ['credential': 'docker_hub', 'registry': 'https://index.docker.io', 'repository': 'drunkenoctopus']
 ]
 
 if (null == imageName) {
